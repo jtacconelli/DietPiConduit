@@ -9,8 +9,8 @@ read -p "Enter server name (example.com): " server_name
 tmp_file="/tmp/conduit.toml"
 curl -sSL "https://raw.githubusercontent.com/jtacconelli/DietPiConduit/refs/heads/main/conduit.toml" -o "$tmp_file"
 sed -i "s/{{server_name}}/$server_name/g" "$tmp_file"
-sudo mkdir -p /var/lib/matrix-conduit/
-sudo cp "$tmp_file" /var/lib/matrix-conduit/conduit.toml
+sudo mkdir -p /etc/matrix-conduit/
+sudo cp "$tmp_file" /etc/matrix-conduit/conduit.toml
 sudo rm "$tmp_file"
 
 sudo systemctl enable matrix-conduit
